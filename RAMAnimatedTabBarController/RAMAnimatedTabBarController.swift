@@ -63,7 +63,12 @@ open class RAMAnimatedTabBarItem: UITabBarItem {
     
     /// animation for UITabBarItem. use RAMFumeAnimation, RAMBounceAnimation, RAMRotationAnimation, RAMFrameItemAnimation, RAMTransitionAnimation
     /// or create custom anmation inherit RAMItemAnimation
-    @IBOutlet open var animation: RAMItemAnimation!
+    open lazy var animation: RAMItemAnimation = {
+        let animation = RAMBounceAnimation()
+        animation.textSelectedColor = #colorLiteral(red: 0.8509803922, green: 0.1254901961, blue: 0.4, alpha: 1)
+        animation.iconSelectedColor = #colorLiteral(red: 0.8509803922, green: 0.1254901961, blue: 0.4, alpha: 1)
+        return animation
+    }()
 
     /// The font used to render the UITabBarItem text.
     @IBInspectable open var textFontSize: CGFloat = 10
